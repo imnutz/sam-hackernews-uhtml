@@ -1,16 +1,41 @@
 import { startApp } from './init'
-import { getTopStories } from './posts'
+import {
+  getTopStories,
+  fetchingStories,
+  getNewStories,
+  getShowStories,
+  getAskStories,
+  getJobStories
+} from './posts'
 
 export default (sam) => {
   const {
     intents: [
       iStartApp,
-      iGetTopStories
+      iGetTopStories,
+      iFetchingStories,
+      iGetNewStories,
+      iGetShowStories,
+      iGetAskStories,
+      iGetJobStories
     ]
-  } = sam.getIntents([startApp, getTopStories])
+  } = sam.getIntents([
+    startApp,
+    getTopStories,
+    fetchingStories,
+    getNewStories,
+    getShowStories,
+    getAskStories,
+    getJobStories
+  ])
 
   return {
     iStartApp,
-    iGetTopStories
+    iGetTopStories,
+    iFetchingStories,
+    iGetNewStories,
+    iGetShowStories,
+    iGetAskStories,
+    iGetJobStories
   }
 }

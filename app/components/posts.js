@@ -8,8 +8,11 @@ export default {
 
     (model) => ({ stories = [] }) => {
       model.stories = stories
+      model.fetching = false
+    },
 
-      return model
+    (model) => ({ fetching = false }) => {
+      model.fetching = fetching
     }
   ]
 }

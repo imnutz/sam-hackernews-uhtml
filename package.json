@@ -7,6 +7,7 @@
     "build": "rollup --config"
   },
   "dependencies": {
+    "navigo": "^7.1.2",
     "sam-pattern": "^1.4.8",
     "uhtml": "^2.1.1"
   },

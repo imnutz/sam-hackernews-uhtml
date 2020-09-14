@@ -10,13 +10,21 @@ const header = (appName, data) => {
         ${
           menuKeys.map(key => {
             return html.for(data[key], 'name')`
-              <li><a href=${data[key].path}>${data[key].name}</a></li>
+              <li><a href=${['#!', data[key].path].join('/')}>${data[key].name}</a></li>
             `
           })
         }
       </ul>
     </div>
   `
+}
+
+const getTitle = (post) => {
+  if (!post.url) {
+    return post.title
+  } else {
+    return html`<a href=${post.url}>${post.title}</a> <span>(${host(post.url)})</span>`
+  }
 }
 
 const renderPosts = (posts = []) => {
@@ -26,10 +34,10 @@ const renderPosts = (posts = []) => {
         posts.map(post => {
           return html.for(post, 'id')`
             <div class="post">
-              <h3> <a href=${post.url}>${post.title}</a> <span>(${host(post.url)})</span></h3>
+              <h3>${getTitle(post)}</h3>
               <p class="info">
                 <span>${post.score} points by ${post.by} ${timeAgo(post.time)} ago</span>|
-                <span>${post.descendants} comments</span>
+                <span>${post.descendants || 0} comments</span>
               </p>
             </div>
           `
@@ -43,7 +51,7 @@ export default (state, intents) => {
   return html`
     <div class="app">
       ${header(state.appName, state.header)}
-      ${renderPosts(state.stories)}
+      ${state.fetching ? html`<span>loading...</span>` : renderPosts(state.stories)}
     </div>
   `
 }

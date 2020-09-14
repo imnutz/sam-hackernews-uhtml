@@ -8,5 +8,3 @@ const renderer = (model) => {
 }
 
 sam.setRender(renderer)
-
-intents.iStartApp()

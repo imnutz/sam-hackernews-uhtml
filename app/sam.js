@@ -2,7 +2,7 @@ import { api, createInstance } from 'sam-pattern'
 import initialState from './initialState'
 
 import setupActions from './actions'
-import setupNAPs from './naps'
+import setupRouter from './router'
 
 import posts from './components/posts'
 
@@ -13,4 +13,5 @@ sam.addComponent(posts)
 sam.addInitialState(initialState)
 
 export const intents = setupActions(sam)
-setupNAPs(sam, intents)
+
+setupRouter(sam, intents)
