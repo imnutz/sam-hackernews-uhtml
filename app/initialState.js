@@ -1,18 +1,28 @@
 export default {
   appName: 'Hacker News',
 
+  firstRun: true,
+
   header: {
-    news: {
-      name: 'new',
+    top: {
+      name: 'Top',
+      path: '/top'
+    },
+    new: {
+      name: 'New',
       path: '/new'
     },
-    past: {
-      name: 'past',
-      path: '/past'
+    show: {
+      name: 'Show',
+      path: '/show'
     },
-    comments: {
-      name: 'comments',
-      path: '/comments'
+    ask: {
+      name: 'Ask',
+      path: '/ask'
+    },
+    jobs: {
+      name: 'Jobs',
+      path: '/jobs'
     }
   }
 }

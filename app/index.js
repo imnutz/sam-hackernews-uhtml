@@ -9,4 +9,4 @@ const renderer = (model) => {
 
 sam.setRender(renderer)
 
-intents.fetchTopStories()
+intents.iStartApp()

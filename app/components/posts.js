@@ -1,12 +1,4 @@
-
-import { fetchTopStories } from '../api'
-
 export default {
-  actions: [
-    () => {
-      return fetchTopStories().then(data => ({topStories: data}))
-    }
-  ],
   acceptors: [
     // handle errors
     (model) => _ => {
@@ -14,8 +6,10 @@ export default {
         throw new Error(model.error())
     },
 
-    (model) => ({ topStories = [] }) => {
-      model.stories = topStories
+    (model) => ({ stories = [] }) => {
+      model.stories = stories
+
+      return model
     }
   ]
 }
