@@ -1,4 +1,4 @@
-# sam-hackernews-uhtml
+# [sam-hackernews-uhtml](https://github.com/imnutz/sam-hackernews-uhtml)
 
 [SAM Pattern](https://www.npmjs.com/package/sam-pattern) + [uhtml](https://github.com/WebReflection/uhtml)
 
