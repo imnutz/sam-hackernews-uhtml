@@ -1,8 +1,6 @@
 export default {
   appName: 'Hacker News',
 
-  firstRun: true,
-
   header: {
     top: {
       name: 'Top',

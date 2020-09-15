@@ -1,3 +1,4 @@
+// https://github.com/vuejs/vue-hackernews-2.0/blob/master/src/util/filters.js
 export function host (url) {
   if (!url) return ''
 
