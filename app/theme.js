@@ -31,14 +31,17 @@ const renderPosts = (posts = []) => {
   return html`
     <div class="posts">
       ${
-        posts.map(post => {
+        posts.map((post) => {
           return html.for(post, 'id')`
             <div class="post">
-              <h3>${getTitle(post)}</h3>
-              <p class="info">
-                <span>${post.score} points by ${post.by} ${timeAgo(post.time)} ago</span>|
-                <span>${post.descendants || 0} comments</span>
-              </p>
+              <span class="score">${post.score}</span>
+              <div class="info-wrapper">
+                <h3>${getTitle(post)}</h3>
+                <p class="info">
+                  <span>by ${post.by} ${timeAgo(post.time)} ago</span> |
+                  <span>${post.descendants || 0} comments</span>
+                </p>
+              </div>
             </div>
           `
         })
@@ -47,11 +50,17 @@ const renderPosts = (posts = []) => {
   `
 }
 
-export default (state, intents) => {
+export default (state) => {
   return html`
     <div class="app">
       ${header(state.appName, state.header)}
-      ${state.fetching ? html`<span>loading...</span>` : renderPosts(state.stories)}
+      ${
+        state.fetching ?
+          html`
+            <div class="loading"><span>fetching...</span></div>
+          ` :
+          renderPosts(state.stories)
+      }
     </div>
   `
 }

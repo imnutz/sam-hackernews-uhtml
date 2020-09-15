@@ -13,5 +13,4 @@ sam.addComponent(posts)
 sam.addInitialState(initialState)
 
 export const intents = setupActions(sam)
-
-setupRouter(sam, intents)
+setupRouter(intents)

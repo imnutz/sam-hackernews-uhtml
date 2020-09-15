@@ -1,30 +1,21 @@
 import Navigo from 'navigo'
 
-export default (sam, intents) => {
+export default (intents) => {
   const navigo = new Navigo(null, true, '#!')
 
-  navigo
-    .on(intents.iStartApp)
-    .on('/top', () => {
+  navigo.hooks({
+    before: (done) => {
       intents.iFetchingStories()
-      intents.iGetTopStories()
-    })
-    .on('/new', () => {
-      intents.iFetchingStories()
-      intents.iGetNewStories()
-    })
-    .on('/show', () => {
-      intents.iFetchingStories()
-      intents.iGetShowStories()
-    })
-    .on('/ask', () => {
-      intents.iFetchingStories()
-      intents.iGetAskStories()
-    })
+      done()
+    }
+  })
 
-    .on('/jobs', () => {
-      intents.iFetchingStories()
-      intents.iGetJobStories()
-    })
+  navigo
+    .on('/', intents.iGetTopStories)
+    .on('/top', intents.iGetTopStories)
+    .on('/new', intents.iGetNewStories)
+    .on('/show', intents.iGetShowStories)
+    .on('/ask', intents.iGetAskStories)
+    .on('/jobs', intents.iGetJobStories)
     .resolve()
 }
